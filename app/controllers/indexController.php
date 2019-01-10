@@ -7,15 +7,20 @@
  */
 namespace app\controllers;
 
-class indexController
+use core\fish;
+
+class indexController extends fish
 {
     public function index()
     {
-        p('index start');
-        $model = new \core\lib\model();
-        $sql = 'SELECT * FROM followers';
-        $res = $model->query($sql);
-        p($res);
-        p($res->fetchAll());
+//        p('index start');
+//        $model = new \core\lib\model();
+//        $sql = 'SELECT * FROM followers';
+//        $res = $model->query($sql);
+//        p($res);
+//        p($res->fetchAll());
+        $data = 'Hello World';
+        $this->assign('data', $data);
+        $this->display('index/index.html');
     }
 }

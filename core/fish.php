@@ -11,7 +11,7 @@ class fish
 {
     //临时储存已经引进的类，防止重复引入
     public static $classMap = [];
-
+    public $assign;
     /**
      *
      * @throws \Exception
@@ -55,5 +55,19 @@ class fish
             }
         }
 
+    }
+
+    public function assign($name, $value)
+    {
+        $this->assign[$name] = $value;
+    }
+
+    public function display($file)
+    {
+        $file = APP . '/views/' . $file;
+        if (is_file($file)) {
+            extract($this->assign);
+            include $file;
+        }
     }
 }
