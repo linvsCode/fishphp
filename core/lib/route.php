@@ -19,8 +19,8 @@ class route
          * 3. 返回对应控制器和方法
          */
         //默认值
-        $this->ctrl = 'index';
-        $this->action = 'index';
+        $this->ctrl = config::get('CONTROLLER', 'route');
+        $this->action = config::get('ACTION', 'route');
 
         if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '/') {
             $path = $_SERVER['REQUEST_URI'];

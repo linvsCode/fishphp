@@ -11,9 +11,10 @@ class model extends \PDO
 {
     public function __construct()
     {
-        $dsn = 'mysql:host=localhost;dbname=laravel';
-        $username = 'root';
-        $passwd = 'root';
+        $temp = config::all('databases');
+        $dsn = $temp['dsn'];
+        $username = $temp['username'];
+        $passwd = $temp['password'];
         try {
             parent::__construct($dsn, $username, $passwd);
         } catch (\PDOException $e) {
