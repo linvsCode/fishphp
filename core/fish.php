@@ -6,6 +6,7 @@
  * Time: 16:14
  */
 namespace core;
+use core\lib\log;
 use core\lib\route;
 class fish
 {
@@ -19,6 +20,8 @@ class fish
      */
     public static function run()
     {
+        log::init();
+        log::log([234324,3434], 'test');
         $route = new route();
         $className = $route->ctrl;
         $action = $route->action;
@@ -32,6 +35,7 @@ class fish
             }
             $ctrl->$action();
         } else {
+            p($controller);
             throw new \Exception('找不到对应控制器' . $className);
         }
     }

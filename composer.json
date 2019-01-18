@@ -1,0 +1,11 @@
+{
+  "name":"fishphp",
+  "description":"fish php Framework",
+  "keywords":[
+    "PHP","PHP Framework"
+  ],
+  "require":{
+    "php":">= 7.1.0",
+    "filp/whoops":"*"
+  }
+}

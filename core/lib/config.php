@@ -28,7 +28,11 @@ class config
          * 3 缓存配置
          */
         if (isset(self::$config[$file])) {
-            return self::$config[$file][$name];
+            if (isset(self::$config[$file][$name])) {
+                return self::$config[$file][$name];
+            } else {
+                throw new \Exception($name . '配置项不存在' );
+            }
         } else {
             $tmpFile = ROOT . '/core/config/' . $file . '.php';
             if (is_file($tmpFile)) {
@@ -37,7 +41,7 @@ class config
                     self::$config[$file] = $conf;
                     return $conf[$name];
                 } else {
-                    throw new \Exception('没有这个配置项' . $name);
+                    throw new \Exception($name . '配置项不存在');
                 }
             } else {
                 throw new \Exception('找不到对应配置文件' . $file);
@@ -45,6 +49,13 @@ class config
         }
     }
 
+    /**
+     *
+     * @param $file
+     * @return mixed
+     * @throws \Exception
+     * @author llj <1063944289@qq.com>
+     */
     static public function all($file)
     {
         if (isset(self::$config[$file])) {

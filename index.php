@@ -20,12 +20,24 @@ define('APP', ROOT . '/app');
 define('MODULE',  'app');
 define('DEBUG', true);
 
+include "vendor/autoload.php";
+
 if (DEBUG) {
+    $whoops = new \Whoops\Run;
+    $errorTitle = '又有bug了';
+    $Handler = new \Whoops\Handler\PrettyPageHandler();
+    $Handler->setPageTitle($errorTitle);
+    $whoops->pushHandler($Handler);
+    $whoops->register();
+
     ini_set('display_errors', 'On');
     error_reporting(E_ALL | E_STRICT);  // E_STRICT 编码标准化警告(建议如何修改以向前兼容)
 } else {
     ini_set('display_errors', 'Off');
 }
+
+fsadfas;
+
 //加载函数库
 include CORE . '/common/function.php';
 
