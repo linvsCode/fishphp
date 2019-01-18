@@ -103,7 +103,7 @@ class fish
                 'debug' => DEBUG,
             ]);
             $template = $twig->load($file);
-            $template->display($this->assign?$this->assign: '');
+            $template->display($this->assign?$this->assign: []);
         }
     }
 }

@@ -16,3 +16,29 @@ function p($var)
         echo "<pre style='position: relative;z-index: 1000;padding: 10px;border-radius: 5px;background: #F5F5F5;border: 1px solid #aaa;font-size: 20px;line-height: 25px;opacity: 0.9;'>" . print_r($var, true) . "</pre>";
     }
 }
+
+function post($name, $default = false, $fitt = false)
+{
+    if (isset($_POST[$name])) {
+        if ($fitt) {
+            switch ($fitt) {
+                case 'int':
+                    if (is_numeric($_POST[$name])) {
+                        return $_POST[$name];
+                    }
+                default :
+                    return $default;
+            }
+        } else {
+            return $_POST[$name];
+        }
+    } else {
+        return $default;
+    }
+}
+
+function jump($url)
+{
+    header('Location:'. $url);
+    exit();
+}

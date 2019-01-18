@@ -10,7 +10,6 @@ namespace app\controllers;
 use app\model\followersModel;
 use core\fish;
 use core\lib\config;
-use core\lib\model;
 
 class indexController extends fish
 {
