@@ -24,10 +24,9 @@ class indexController extends fish
 
         $tmp = config::get('ACTION', 'route');
         $tmp = config::get('CONTROLLER', 'route');
-        p($tmp);
         $data = 'Hello World';
         $this->assign('data', $data);
-        $this->display('index/index.html');
+        $this->display('index.html');
     }
 
     public function test()
@@ -36,5 +35,10 @@ class indexController extends fish
        $res1 = $model->lists();
        $res2 = $model->getOne(1);
        dd($res2);
+    }
+
+    public function getTwig()
+    {
+
     }
 }
