@@ -6,6 +6,8 @@
   ],
   "require":{
     "php":">= 7.1.0",
-    "filp/whoops":"*"
+    "filp/whoops":"*",
+    "symfony/var-dumper":"*",
+    "catfan/medoo":"*"
   }
 }

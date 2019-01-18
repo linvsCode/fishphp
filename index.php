@@ -36,7 +36,7 @@ if (DEBUG) {
     ini_set('display_errors', 'Off');
 }
 
-fsadfas;
+//dd(123423423);
 
 //加载函数库
 include CORE . '/common/function.php';

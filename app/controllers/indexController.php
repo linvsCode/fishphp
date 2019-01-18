@@ -7,8 +7,10 @@
  */
 namespace app\controllers;
 
+use app\model\followersModel;
 use core\fish;
 use core\lib\config;
+use core\lib\model;
 
 class indexController extends fish
 {
@@ -20,12 +22,19 @@ class indexController extends fish
 //        p($res);
 //        p($res->fetchAll());
 
-
         $tmp = config::get('ACTION', 'route');
         $tmp = config::get('CONTROLLER', 'route');
         p($tmp);
         $data = 'Hello World';
         $this->assign('data', $data);
         $this->display('index/index.html');
+    }
+
+    public function test()
+    {
+       $model = new followersModel();
+       $res1 = $model->lists();
+       $res2 = $model->getOne(1);
+       dd($res2);
     }
 }
