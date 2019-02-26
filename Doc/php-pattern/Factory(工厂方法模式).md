@@ -1,4 +1,4 @@
-[toc]
+[TOC]
 
 # Factory method pattern(工厂方法模式)
 
@@ -31,7 +31,7 @@ interface ButtonFactory{
 class MyButtonFactory implements ButtonFactory{
     // 实现工厂方法
     public function createButton($type){
-        switch($type){
+        switch($type){ 
             case 'Mac':
                 return new MacButton();
             case 'Win':
