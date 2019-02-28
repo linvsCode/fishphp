@@ -6,7 +6,6 @@
  * Time: 15:55
  */
 
-
 /**
  * 入口文件
  * 1. 定义常量
@@ -35,8 +34,6 @@ if (DEBUG) {
 } else {
     ini_set('display_errors', 'Off');
 }
-
-//dd(123423423);
 
 //加载函数库
 include CORE . '/common/function.php';

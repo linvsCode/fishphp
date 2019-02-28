@@ -84,26 +84,31 @@ class fish
     /**
      * twig模板
      * @param $file
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws \Exception
      * @author llj <1063944289@qq.com>
      */
     public function display($file)
     {
-        $tmpfile = APP . '/views/' . self::$controller .'/' .$file;
-        if (is_file($tmpfile)) {
-            $loader = new \Twig_Loader_Filesystem(APP . '/views/' . self::$controller);
-            $templateCachePath = ROOT . '/path/to/compilation_cache';
-            if (!is_dir($templateCachePath)) {
-                mkdir($templateCachePath, 0777, true);
+        try {
+            $tmpfile = APP . '/views/' . self::$controller .'/' .$file;
+            if (is_file($tmpfile)) {
+                $loader = new \Twig_Loader_Filesystem(APP . '/views/' . self::$controller);
+                $templateCachePath = ROOT . '/path/to/compilation_cache';
+                if (!is_dir($templateCachePath)) {
+                    mkdir($templateCachePath, 0777, true);
+                }
+                $twig = new \Twig_Environment($loader, [
+                    'cache' => $templateCachePath,
+                    'debug' => DEBUG,
+                ]);
+                $template = $twig->load($file);
+                $template->display($this->assign?$this->assign: []);
+            } else {
+                throw new \Exception($tmpfile. '不存在');
             }
-            $twig = new \Twig_Environment($loader, [
-                'cache' => $templateCachePath,
-                'debug' => DEBUG,
-            ]);
-            $template = $twig->load($file);
-            $template->display($this->assign?$this->assign: []);
+        }catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
+
     }
 }
