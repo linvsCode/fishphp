@@ -2,18 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="icon" href="https://secure.gravatar.com/avatar/68143e285d49858bf4d2713ebab12c4d" type="image/x-icon"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <title>linvscode</title>
+    <style>
+        body {
+            background-color: #e9edf1;
+        }
+        .show {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin: 0 25% auto 25%;
+            background-color:  #e9edf1;
+        }
+        .rotate{
+            width:110px;
+            height:110px;
+            background-color:red;
+            transition:-webkit-transform 1s;
+            border-radius:50%;
+            overflow:hidden;
+            margin: 0 auto;
+        }
+        .rotate:hover{
+            transform:rotate(360deg);
+        }
+    </style>
 </head>
 <body>
-<header>header</header>
-
-<content>
+<header></header>
+<div class="rotate" >
+    <image src="https://secure.gravatar.com/avatar/68143e285d49858bf4d2713ebab12c4d" style="width: 100%">
+</div>
+<content class="show">
 
     {% block content %}
 
     {% endblock %}
 </content>
 
-<footer>footer</footer>
+<footer></footer>
+<script>
+</script>
 </body>
 </html>

@@ -11,9 +11,8 @@
  - 本科/东莞理工学院计算机学院 
  - 工作年限：1年
  - Github：https://github.com/linvsCode
- - 个人站点：https://www.linvscode.top
+ - 个人站点：www.linvscode.top/fishphp
  - 期望职位：PHP后端开发
- - 期望城市：深圳、东莞
  
 # 工作经历
 

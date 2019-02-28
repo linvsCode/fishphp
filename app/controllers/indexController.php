@@ -10,6 +10,7 @@ namespace app\controllers;
 use app\model\followersModel;
 use core\fish;
 use core\lib\config;
+use Michelf\Markdown;
 
 class indexController extends fish
 {
@@ -23,9 +24,15 @@ class indexController extends fish
 
         $tmp = config::get('ACTION', 'route');
         $tmp = config::get('CONTROLLER', 'route');
-        $data = 'Hello World';
-        $this->assign('data', $data);
-        $this->display('index.html');
+        $file_path = ROOT . '/Doc/linvscode.md';
+        if (file_exists($file_path)) {
+            $data = file_get_contents($file_path);
+            $html = Markdown::defaultTransform($data);
+            $this->assign('data', $html);
+            $this->display('index.html');
+        } else {
+            http_response_code(403);
+        }
     }
 
     public function test()

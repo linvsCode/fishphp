@@ -9,6 +9,7 @@
     "filp/whoops":"2.3.1",
     "symfony/var-dumper":"4.2.2",
     "catfan/medoo":"1.6.1",
-    "twig/twig":"2.6.2"
+    "twig/twig":"2.6.2",
+    "michelf/php-markdown": "^1.8"
   }
 }

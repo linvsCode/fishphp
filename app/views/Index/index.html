@@ -1,4 +1,10 @@
 {% extends "getTwig.html" %}
 {% block content %}
 {{data}}
+<script>
+    window.onload=function (){
+        var cont = document.getElementsByClassName("show")[0];
+        cont.innerHTML = cont.innerText;
+    }
+</script>
 {% endblock %}
